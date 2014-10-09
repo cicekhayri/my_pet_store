@@ -1,4 +1,5 @@
 class SpeciesController < ApplicationController
+  before_filter :authorize
   def index
     @species = Species.all
   end

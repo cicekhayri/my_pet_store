@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  #before_filter :find_pet, only: [:show, :create, :destroy]
+  before_filter :authorize, only: [:new, :create, :destroy, :edit]
   def index
     @pets = Pet.order(id: :desc)
   end

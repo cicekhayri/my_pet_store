@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  helper_method :is_admin
+
 
   private
   def current_user
@@ -11,4 +13,20 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
     end
   end
+
+  def is_admin
+    if current_user && current_user.email == "admin@example.com"
+      return true
+    else
+      return false
+    end
+  end
+
+  def authorize
+    if !is_admin
+      redirect_to root_url
+      false
+    end
+  end
+
 end

@@ -7,8 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<header>
+<h1>Welcome to <strong>My Pet Store</strong></h1>
+</header>
+<nav>
+  <ul>
+    <% if is_admin %>
+    <li><%= link_to "Add new pet", new_pet_path %></li>
+    <li><%= link_to "Add new species", new_species_path %></li>
+    <% else %>
+    <li><%= link_to "All pets", pets_path %></li>
+    <% end %>
+    <% if current_user %>
+      <li><%= link_to "Logout", logout_path %></li>
+    <% else %>
+    <li><%= link_to "Register", new_user_path %></li>
+    <li><%= link_to "Login", login_path %></li>
+    <% end %>
+  </ul>
+</nav>
+<section>
+  <%= yield %>
+</section>
+<footer>
+Foooter
+</footer>
 </body>
 </html>
