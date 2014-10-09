@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
 
   resources :users
   resources :sessions
-
+  resources :pets
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
