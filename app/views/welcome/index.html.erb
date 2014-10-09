@@ -1,1 +1,6 @@
-<h1>Welcome <%= current_user.name %> to <strong>My Pet Store</strong></h1>
+<h1>Welcome to <strong>My Pet Store</strong></h1>
+
+<% if current_user %>
+  <%= current_user.name %> 
+  <%= link_to "Logout", logout_path %>
+<% end %>
