@@ -5,9 +5,7 @@
 <% end %>
 
 <% @pets.each do |pet| %>
-  <div class="box">
-  <%= link_to pet.name, pet_path(pet) %>
-  </div>
+  <%= link_to (image_tag pet.picture, width: 200), pet_path(pet) %>
 <% end %>
 <br/><br/>
 

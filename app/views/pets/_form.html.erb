@@ -15,6 +15,11 @@
   <%= f.number_field :weight %>
   </p>
   <p>
+  <%= f.label :picture %>
+  <%= f.file_field :picture %>
+  </p>
+  </p>
+  <p>
   <%= f.select :species_id, options_for_select(Species.all.collect {|u| [ u.species_type, u.id ] }) %>
   </p>
   <p>
