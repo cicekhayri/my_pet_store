@@ -6,6 +6,10 @@
   <%= f.text_field :species_type %>
   </p>
   <p>
+  <%= f.label :stock, "In Stock" %>
+  <%= f.number_field :stock %>
+  </p>
+  <p>
   <h4>Pets</h4>
   <%= f.fields_for :pets do |pf| %>
     <%= pf.label :name %>
