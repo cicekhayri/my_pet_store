@@ -1,0 +1,20 @@
+<%= form_for @pet do |f| %>
+  <% if @pet.errors.any? %>
+    <ul>
+    <% @pet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.label :weight %>
+  <%= f.number_field :weight %>
+  </p>
+  <p>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back", :back %>
