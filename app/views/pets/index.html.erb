@@ -1,4 +1,11 @@
 <h1>All my pets in store</h1>
+<% if is_admin %>
+<%= link_to "Add new pet", new_pet_path %>
+<br/><br/>
+<% end %>
+
 <% @pets.each do |pet| %>
   <%= link_to pet.name, pet_path(pet) %><br/>
 <% end %>
+
+

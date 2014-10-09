@@ -1,0 +1,5 @@
+<h1><%= @species.species_type %></h1>
+
+<% @species.pets.each do |pet| %>
+  <%= pet.name %>
+<% end %>

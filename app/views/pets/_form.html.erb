@@ -15,6 +15,9 @@
   <%= f.number_field :weight %>
   </p>
   <p>
+  <%= f.select :species_id, options_for_select(Species.all.collect {|u| [ u.species_type, u.id ] }) %>
+  </p>
+  <p>
   <%= f.submit %>
 <% end %>
 <%= link_to "Back", :back %>

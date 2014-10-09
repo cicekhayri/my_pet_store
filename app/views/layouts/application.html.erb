@@ -14,8 +14,7 @@
   <ul>
     <% if is_admin %>
     <li><%= link_to "All pets", pets_path %></li>
-    <li><%= link_to "Add new pet", new_pet_path %></li>
-    <li><%= link_to "Add new species", new_species_path %></li>
+    <li><%= link_to "All species", species_index_path %></li>
     <% else %>
     <li><%= link_to "All pets", pets_path %></li>
     <% end %>
