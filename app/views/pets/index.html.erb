@@ -5,7 +5,10 @@
 <% end %>
 
 <% @pets.each do |pet| %>
-  <%= link_to pet.name, pet_path(pet) %><br/>
+  <div class="box">
+  <%= link_to pet.name, pet_path(pet) %>
+  </div>
 <% end %>
+<br/><br/>
 
 

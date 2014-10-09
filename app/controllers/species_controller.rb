@@ -1,6 +1,6 @@
 class SpeciesController < ApplicationController
   before_filter :authorize
-  before_filter :find_species, only: [:show, :destroy]
+  before_filter :find_species, only: [:show, :destroy, :edit, :update]
   def index
     @species = Species.all
   end
@@ -13,6 +13,9 @@ class SpeciesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def create
     @species = Species.new(species_params)
 
@@ -23,6 +26,14 @@ class SpeciesController < ApplicationController
     end
   end
 
+  def update
+    if @species.update_attributes(species_params)
+      redirect_to species_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @species.destroy
     redirect_to species_index_path
@@ -30,7 +41,7 @@ class SpeciesController < ApplicationController
 
   private
   def species_params
-    params.require(:species).permit(:species_type) #pets_attributes: [:id, :name])
+    params.require(:species).permit(:species_type, :stock) #pets_attributes: [:id, :name])
   end
 
   def find_species

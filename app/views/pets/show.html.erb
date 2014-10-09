@@ -1,6 +1,9 @@
 <h1><%= @pet.name %></h1>
-<%= @pet.weight %>
+<%= @pet.weight %><br/>
+In Stock: <%= @pet.species.stock %>
 <br/><br/>
 <% if is_admin %>
   <%= link_to "Edit", edit_pet_path %>
 <% end %>
+<br/>
+<%= link_to "Back", :back %>
