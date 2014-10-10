@@ -38,7 +38,8 @@ class PetsController < ApplicationController
 
     if current_user
       @pet.update_attributes({user_id: current_user.id})
-      redirect_to pet_path
+      @pet.species.decrement!(:stock)
+      redirect_to pet_path(@pet)
     else
       render :buy_pet
     end
@@ -51,6 +52,10 @@ class PetsController < ApplicationController
 
   def find_pet
     @pet = Pet.find(params[:id])
+  end
+
+  def decrement!
+   # @species.update_attributes(:stock => stock - 1)
   end
 
 end
