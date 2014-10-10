@@ -22,12 +22,13 @@ nav {
 }
 nav ul {
   width: 100%;
-
+  margin-left: -40px;
   padding-top: 10px;
 }
 
 nav li {
   margin: 10px;
+
   display: inline;
 }
 nav li a {
