@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_filter :authorize, only: [:new, :create, :destroy, :update, :edit]
-  before_filter :find_pet, only: [:show, :edit, :update]
+  before_filter :find_pet, only: [:show, :edit, :update, :buy_pet]
 
   def index
     @pets = Pet.order(id: :desc)
@@ -31,6 +31,16 @@ class PetsController < ApplicationController
       redirect_to pet_path
     else
       render :edit
+    end
+  end
+
+  def buy_pet
+
+    if current_user
+      @pet.update_attributes({user_id: current_user.id})
+      redirect_to pet_path
+    else
+      render :buy_pet
     end
   end
 
