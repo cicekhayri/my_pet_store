@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :users
+  resources :users  
   resources :sessions
   resources :pets
   resources :species
