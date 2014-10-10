@@ -41,7 +41,7 @@ class PetsController < ApplicationController
       @pet.species.decrement!(:stock)
       redirect_to pet_path(@pet)
     else
-      render :buy_pet
+      "Nothing here"
     end
   end
 

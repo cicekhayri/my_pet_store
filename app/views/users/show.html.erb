@@ -1,0 +1,6 @@
+<h1>Hello <%= @user.name %></h1>
+
+Pets:
+<% @user.pets.each do |pet| %>
+  <%= pet.name %> | 
+<% end %>
