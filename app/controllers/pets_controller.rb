@@ -20,6 +20,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     
     if @pet.save
+      flash[:notice] = "Animal created successfull"
       redirect_to pets_path
     else
       render :new

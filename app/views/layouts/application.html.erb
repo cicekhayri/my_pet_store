@@ -28,6 +28,9 @@
   </ul>
 </nav>
 <section>
+  <% flash.each do |name,msg| %>
+    <%= msg %>
+  <% end %>
   <%= yield %>
 </section>
 <footer>
