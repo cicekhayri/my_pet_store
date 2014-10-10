@@ -4,8 +4,10 @@ Weight: <%= @pet.weight %><br/>
 <%= @pet.species.species_type %>
 In Stock: <%= @pet.species.stock unless @pet.species.nil? %>
 <% if current_user %>
-  <%= link_to "Buy", buy_pet_path(@pet) %>
-
+       <%= link_to "Buy", buy_pet_path(@pet) if @pet.user_id.nil? %>
+       <% unless @pet.user_id.nil? %>
+       <%= "Owner is #{@pet.user.name}" %>
+      <% end %>
 <% else %>
   Login to buy
 <% end %>
