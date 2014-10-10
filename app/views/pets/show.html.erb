@@ -9,7 +9,7 @@ In Stock: <%= @pet.species.stock unless @pet.species.nil? %>
        <%= "Owner is #{@pet.user.name}" %>
       <% end %>
 <% else %>
-  Login to buy
+  <p>Login to buy</li>
 <% end %>
 <br/><br/>
 <% if is_admin %>
