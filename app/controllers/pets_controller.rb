@@ -20,7 +20,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     
     if @pet.save
-      flash[:notice] = "Animal created successfull"
+      flash[:notice] = "Animal created successful"
       redirect_to pets_path
     else
       render :new
@@ -29,6 +29,7 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update_attributes(pet_params)
+      flash[:notice] = "Animal updated successful"
       redirect_to pet_path
     else
       render :edit

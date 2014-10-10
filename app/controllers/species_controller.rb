@@ -20,6 +20,7 @@ class SpeciesController < ApplicationController
     @species = Species.new(species_params)
 
     if @species.save
+      flash[:notice] = "Species created successful"
       redirect_to species_index_path
     else
       render :new
@@ -28,6 +29,7 @@ class SpeciesController < ApplicationController
 
   def update
     if @species.update_attributes(species_params)
+      flash[:notice] = "Species updated successful"
       redirect_to species_path
     else
       render :edit
@@ -36,6 +38,7 @@ class SpeciesController < ApplicationController
 
   def destroy
     @species.destroy
+    flash[:notice] = "Species deleted successful"
     redirect_to species_index_path
   end
 
