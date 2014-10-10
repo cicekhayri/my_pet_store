@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :authorize, only: [:index]
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -21,6 +26,12 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to :back
   end
 
   private

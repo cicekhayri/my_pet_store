@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
   def authorize
     if !is_admin
       redirect_to root_url
-      false
     end
   end
 
